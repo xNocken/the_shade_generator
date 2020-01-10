@@ -99,18 +99,32 @@ input:focus {
   box-shadow: 0 0 2pt 1pt #555;
 }
 
-#add-js div {
+#add-js {
+  max-width: 1600px;
+  margin: auto;
+}
+
+#add-js div.colorpreview {
   width: 100px;
   height: 100px;
   display: inline-block;
   border-radius: 15% 25%;
-  margin: 15px;
+  margin: 15px 60px;
 }
 
-#add-js div:hover {
+#add-js div.colorpreview:hover {
   border-color: black;
   border: solid 3.5px;
   border-radius: 25% 15%;
+}
+
+.element {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.row {
+  display: block;
 }
 
 span {

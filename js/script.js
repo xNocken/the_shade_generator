@@ -45,8 +45,8 @@ document.getElementsByClassName('submit')[0].addEventListener('click', (event) =
     document.getElementById("add-js").innerHTML += `${message}`;
   }
 
-  var printRGB = () => {
-    print( '<p>RGB: ' + red + ', ' + green + ', ' + blue + '<br></p>' );
+  var getRGB = () => {
+    return'<p>RGB: ' + red + ', ' + green + ', ' + blue + '<br></p>';
   }
 
   //Initial Color Print
@@ -55,7 +55,7 @@ document.getElementsByClassName('submit')[0].addEventListener('click', (event) =
 
   print( '<h3>Base Color: <br></h3>' );
   print( ' </br>' );
-  printRGB();
+  print(getRGB());
   print( ' </br>' );
   print( html );
   for (i = 0; i < 5; i += 1) {
@@ -74,19 +74,24 @@ document.getElementsByClassName('submit')[0].addEventListener('click', (event) =
   print( '<h3>Shades: <br></h3><section class="colors">' );
 
   while (red < 256 && green < 256 && blue < 256) {
+    let html = '';
 
-    rgbColor = baseColor();
-    html = '<div style="background-color:' + rgbColor + '"></div>';
+    for (let i = 0; i < 7; i += 1) {
 
-    print( ' </br>' );
-    printRGB();
-    print( ' </br>' );
+      rgbColor = baseColor();
+      html += `<div class="element"><br>
+                ${getRGB()}
+                <br>          
+                <div class="colorpreview" style="background-color: ${rgbColor}"></div>
+                <br>
+              </div>`;
+
+      
+      red += 2;
+      blue += 2;
+      green += 2;
+    }
     print( html );
-    print( ' </br>' );
-
-    red += 2;
-    blue += 2;
-    green += 2;
   }
 
   print('</section>');
